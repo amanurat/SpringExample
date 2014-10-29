@@ -22,8 +22,6 @@ public class HelloTest {
 
     ApplicationContext context = new ClassPathXmlApplicationContext("classpath:beans.xml");
 
-
-
     @Test
     public void testBeanFactory() throws Exception {
         Resource resource = new FileSystemResource("D:\\work-training\\SpringTraining\\src\\main\\resources\\beans.xml");

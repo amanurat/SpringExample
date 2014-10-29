@@ -17,20 +17,11 @@ public class EmployeeDaoTest {
 
     ApplicationContext context = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
 
-
-
     @Test
     public void testConnectDataBase() throws Exception {
-//        EmployeeDao employeeDao = (EmployeeDao) context.getBean(EmployeeDao.class);
         EmployeeDao employeeDao = (EmployeeDao) context.getBean("employeeDao");
-
-
         Employee employee = employeeDao.findById(1);
-
         System.out.println("First Name : "+ employee.getFirstName() + ", Last Name: "+ employee.getLastName());
-
-
     }
-
 
 }

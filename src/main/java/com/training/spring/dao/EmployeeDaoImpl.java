@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
  * Date: 4/20/2014
  * Time: 4:41 PM
  */
-//@Repository(value = "employeeDao")
+@Repository(value = "employeeDao")
 public class EmployeeDaoImpl implements EmployeeDao {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());

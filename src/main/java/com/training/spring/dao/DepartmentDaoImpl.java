@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
  * Date: 4/21/2014
  * Time: 10:23 AM
  */
-//@Repository
+@Repository("departmentDao")
 public class DepartmentDaoImpl implements DepartmentDao {
 
     @Autowired
