@@ -1,7 +1,6 @@
 package com.training.spring.bean;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.springframework.stereotype.Component;
 
 /**
  * User: assanai.manurat
@@ -15,12 +14,22 @@ public class Hello {
 
     String message = "";
 
+    int age = 0;
     public Hello() {
 
     }
 
+    public Hello(String message, int age) {
+        this.message = message;
+        this.age = age;
+    }
+
     public Hello(String message) {
         this.message = message;
+    }
+
+    public Hello(int age) {
+        this.age = age;
     }
 
     public void setMessage(String message) {
@@ -39,10 +48,19 @@ public class Hello {
         this.humen = humen;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this)
                 .append("message", message)
+                .append("age", age)
                 .toString();
     }
 }
