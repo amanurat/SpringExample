@@ -1,10 +1,7 @@
 package com.training;
 
-import com.hibernate.annotation.entity.Employee;
-import com.training.spring.Hello;
-import com.training.spring.dao.EmployeeDao;
+import com.training.spring.bean.Hello;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
@@ -12,8 +9,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * Unit test for simple App.

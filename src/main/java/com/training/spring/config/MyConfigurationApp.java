@@ -15,6 +15,8 @@ public class MyConfigurationApp {
         MyService myService = context.getBean(MyService.class);
         myService.message("Hello world!");
 
-        System.out.println("My message is : " + myService.getMessage());
+        System.out.println("Message : " + myService.getMessage());
+        System.out.println("FirstName : " + myService.getFirstname());
+        System.out.println("LastName : " + myService.getLastname());
     }
 }

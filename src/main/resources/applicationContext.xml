@@ -16,9 +16,22 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
+    <context:component-scan base-package="com.training.spring.bean"/>
+    
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:properties/resources.properties"/>
 
-    <bean name="hello" class="com.training.spring.Hello">
-        <constructor-arg value="Constructor JavaFun"/>
     </bean>
+
+    <bean id="hello" class="com.training.spring.bean.Hello">
+        <constructor-arg value="Hello Java by Constructor"/>
+        <property name="humen" ref="humen"/>
+    </bean>
+
+    <bean id="humen" class="com.training.spring.bean.Humen">
+        <property name="firstName" value="${firstname}"/>
+        <property name="lastName" value="${lastname}"/>
+    </bean>
+
 
 </beans>

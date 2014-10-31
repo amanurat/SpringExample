@@ -17,11 +17,31 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 
+
+    <!-- Property Holder using simple bean-->
+<!--
     <bean
             class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location">
             <value>properties/database.properties</value>
         </property>
+    </bean>
+-->
+
+
+    <!-- property Holder using multiple resources-->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location">
+            <value>properties/database.properties</value>
+        </property>
+
+        <property name="locations">
+            <list>
+                <value>properties/resources.properties</value>
+                <value>properties/database.properties</value>
+            </list>
+        </property>
+
     </bean>
 
 
@@ -33,7 +53,7 @@
         <property name="password" value="${jdbc.password}"/>
     </bean>
 
-    <!-- Hibernate session factory -->
+    <!-- Hibernate SessionFactory using simple spring bean-->
     <!--<bean id="sessionFactory"
           class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 
@@ -60,15 +80,19 @@
 
     </bean>-->
 
+
+     <!--Hibernate SessionFactory using p name space -->
      <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"
            p:dataSource-ref="dataSource"
            p:configLocation="${hibernate.config}"
            p:packagesToScan="com.hibernate.annotation.entity"/>
 
+   <!-- Spring Hibernate Template-->
     <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
         <constructor-arg ref="sessionFactory" />
     </bean>
 
+    <!-- Spring Transaction Manager bean-->
     <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>

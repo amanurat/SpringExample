@@ -1,7 +1,6 @@
 package com.training;
 
 import com.hibernate.annotation.entity.Employee;
-import com.training.spring.Hello;
 import com.training.spring.dao.EmployeeDao;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

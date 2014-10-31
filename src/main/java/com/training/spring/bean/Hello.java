@@ -1,4 +1,4 @@
-package com.training.spring;
+package com.training.spring.bean;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.stereotype.Component;
@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
  */
 public class Hello {
 
+
+    Humen humen;
 
     String message = "";
 
@@ -27,6 +29,14 @@ public class Hello {
 
     public String getMessage() {
         return message;
+    }
+
+    public Humen getHumen() {
+        return humen;
+    }
+
+    public void setHumen(Humen humen) {
+        this.humen = humen;
     }
 
     @Override
