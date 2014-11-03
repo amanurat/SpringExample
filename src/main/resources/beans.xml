@@ -28,7 +28,7 @@
     </bean>-->
 
 
-    <bean name="hello" class="com.training.spring.Hello">
+    <bean name="hello" class="com.training.spring.bean.Hello">
         <constructor-arg value="Constructor JavaFun"/>
     </bean>
 

@@ -2,7 +2,7 @@ package com.training;
 
 import com.hibernate.annotation.entity.Department;
 import com.hibernate.annotation.entity.Employee;
-import com.training.spring.Hello;
+import com.training.spring.bean.Hello;
 import com.training.spring.dao.DepartmentDao;
 import com.training.spring.dao.EmployeeDao;
 import org.hibernate.SessionFactory;
