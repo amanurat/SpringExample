@@ -3,11 +3,17 @@ package com.training;
 import com.hibernate.annotation.entity.Department;
 import com.training.spring.dao.DepartmentDao;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.hibernate.annotation.entity.Employee;
 import com.training.spring.dao.EmployeeDao;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
 
 /**
  * User: assanai.manurat
@@ -15,19 +21,17 @@ import com.training.spring.dao.EmployeeDao;
  * Time: 8:50 AM
  */
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = { "classpath:beans.xml"})
+@TransactionConfiguration
 public class DepartmentDaoTest {
 
-    ApplicationContext context = new ClassPathXmlApplicationContext("classpath:beans.xml");
+    @Autowired DepartmentDao departmentDao;
 
-
-    
     @Test
     public void testConnectDataBase() throws Exception {
-        DepartmentDao departmentDao = (DepartmentDao) context.getBean("departmentDao");
         Department department = departmentDao.findById(1);
         System.out.println("id : " + department.getId() + ", name: " + department.getDepartmentName());
-
-
     }
 
 }
