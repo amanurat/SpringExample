@@ -19,7 +19,7 @@ public class HelloTest {
 
     @Test
     public void testBeanFactory() throws Exception {
-        Resource resource = new FileSystemResource("D:\\work-training\\SpringTraining\\src\\main\\resources\\beans.xml");
+        Resource resource = new FileSystemResource("D:\\work-training\\SpringExample\\src\\main\\resources\\beans.xml");
         BeanFactory factory1 = new XmlBeanFactory(resource);
 
         ClassPathResource classPathResource = new ClassPathResource("beans.xml");
@@ -27,7 +27,6 @@ public class HelloTest {
 
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext(new String[] {"beans.xml"});
         BeanFactory factory3 = applicationContext;
-
 
         System.out.println("factory1 : "+ factory1);
         System.out.println("factory2 : "+ factory2);
@@ -38,6 +37,13 @@ public class HelloTest {
     @Test
     public void testLoadFromXmlBean() throws Exception {
         Hello hello = (Hello) context.getBean("hello");
+        System.out.println("Hello message : "+ hello.getMessage());
+
+    }
+
+    @Test
+    public void testLoadFromClassBean() throws Exception {
+        Hello hello = context.getBean(Hello.class);
         System.out.println("Hello message : "+ hello.getMessage());
 
     }
