@@ -9,4 +9,6 @@ import com.hibernate.annotation.entity.Department;
  */
 public interface DepartmentDao {
     Department findById(Integer id);
+
+    void remove(Department department);
 }

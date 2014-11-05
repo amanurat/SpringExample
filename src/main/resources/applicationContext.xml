@@ -18,6 +18,7 @@
 
     <context:component-scan base-package="com.training.spring.bean"/>
     <context:annotation-config/>
+    <tx:annotation-driven/>
     
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location" value="classpath:properties/resources.properties"/>

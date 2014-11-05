@@ -21,6 +21,11 @@ public class DepartmentDaoImpl implements DepartmentDao {
         return hibernateTemplate.get(Department.class, id);
     }
 
+    @Override
+    public void remove(Department department) {
+        hibernateTemplate.delete(department);
+    }
+
 
 
 }
