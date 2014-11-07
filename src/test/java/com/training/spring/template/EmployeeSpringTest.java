@@ -1,4 +1,4 @@
-package com.training;
+package com.training.spring.template;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -50,8 +50,6 @@ public class EmployeeSpringTest {
     public void testInsertEmployeeShouldBeSucces() throws Exception {
 //        Department department = hibernateTemplate.get(Department.class, 1);
 
-
-//        Employee employee = new Employee("John", "Sutton", 200000, 20, "08912345678", 0, "Director", new Date(),"john@gmail.com", "USA");
         Employee employee = new Employee("David", "Henry");
         employee.setDepartment(new Department("IT"));
 //        employee.setDepartment(department);

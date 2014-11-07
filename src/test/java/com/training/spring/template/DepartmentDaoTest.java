@@ -1,4 +1,4 @@
-package com.training;
+package com.training.spring.template;
 
 import com.hibernate.annotation.entity.Department;
 import com.training.spring.dao.DepartmentDao;
@@ -27,7 +27,8 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 @TransactionConfiguration
 public class DepartmentDaoTest {
 
-    @Autowired DepartmentDao departmentDao;
+    @Autowired
+    private DepartmentDao departmentDao;
 
 
     @Autowired
@@ -41,7 +42,6 @@ public class DepartmentDaoTest {
 
     @Test
     public void testDeleteShouldBeDeletedCascade() throws Exception {
-
 
 //        Department department = hibernateTemplate.get(Department.class, 1);
         Department department = departmentDao.findById(1);

@@ -86,7 +86,7 @@ public class AppTest {
     }
 
     @Test
-    public void testCalLHibernateTemplate() throws Exception {
+    public void testCallHibernateTemplate() throws Exception {
 
         Department department = hibernateTemplate.get(Department.class, 1);
         System.out.println("get : " + department);

@@ -1,6 +1,5 @@
 package com.training.spring.bean;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * User: assanai.manurat
@@ -58,9 +57,11 @@ public class Hello {
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this)
-                .append("message", message)
-                .append("age", age)
-                .toString();
+        final StringBuffer sb = new StringBuffer("Hello{");
+        sb.append("humen=").append(humen);
+        sb.append(", message='").append(message).append('\'');
+        sb.append(", age=").append(age);
+        sb.append('}');
+        return sb.toString();
     }
 }

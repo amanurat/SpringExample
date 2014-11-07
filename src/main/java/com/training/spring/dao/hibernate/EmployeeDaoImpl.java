@@ -1,4 +1,4 @@
-package com.training.spring.dao;
+package com.training.spring.dao.hibernate;
 
 import com.hibernate.annotation.entity.Employee;
 import com.training.spring.dao.EmployeeDao;
