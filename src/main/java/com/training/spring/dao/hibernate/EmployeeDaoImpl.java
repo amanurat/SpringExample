@@ -9,6 +9,8 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * User: assanai.manurat
  * Date: 4/20/2014
@@ -29,6 +31,12 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 
     @Override
+    public List<Employee> findAll() {
+        //TODO not implement yet
+        throw new IllegalArgumentException("not implement yet");
+    }
+
+    @Override
     @Transactional(readOnly = true)
     public Employee findById(Integer id) throws RuntimeException {
 //        return (Employee) sessionFactory.openSession().get(Employee.class, id);
@@ -38,6 +46,22 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
         logger.debug("> show hibernate template object : "+ hibernateTemplate);
         return employee;
+    }
+
+    @Override
+    public void remove(Employee employee) {
+
+        //TODO not implement yet
+
+        throw new IllegalArgumentException("not implement yet");
+
+    }
+
+    @Override
+    public void insert(Employee employee) {
+
+        //TODO not implement yet
+        throw new IllegalArgumentException("not implement yet");
     }
 
 

@@ -10,6 +10,7 @@ import java.util.List;
  * Time: 10:23 AM
  */
 public interface DepartmentDao {
+
     List<Department> findAll();
 
     Department findById(Integer id);
@@ -17,4 +18,5 @@ public interface DepartmentDao {
     void remove(Department department);
 
     void insert(Department department);
+
 }

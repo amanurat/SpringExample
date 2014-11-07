@@ -1,7 +1,10 @@
 package com.training.spring.dao;
 
+import com.hibernate.annotation.entity.Department;
 import com.hibernate.annotation.entity.Employee;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * User: assanai.manurat
@@ -9,5 +12,13 @@ import org.springframework.stereotype.Repository;
  * Time: 5:02 PM
  */
 public interface EmployeeDao {
-    Employee findById(Integer id) throws RuntimeException;
+
+    List<Employee> findAll();
+
+    Employee findById(Integer id);
+
+    void remove(Employee employee);
+
+    void insert(Employee employee);
+
 }

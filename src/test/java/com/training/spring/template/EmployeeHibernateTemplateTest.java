@@ -18,6 +18,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.hibernate.annotation.entity.Employee;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * User: assanai.manurat
@@ -26,7 +27,8 @@ import com.hibernate.annotation.entity.Employee;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:beans.xml"})
-public class EmployeeSpringTest {
+@Transactional
+public class EmployeeHibernateTemplateTest {
 
     @Autowired
     private HibernateTemplate hibernateTemplate;
@@ -59,30 +61,32 @@ public class EmployeeSpringTest {
 
 
     @Test
-    public void testUseSpringShouldLoadEmployeeByPk() throws Exception {
+    public void testGetShouldLoadEmployeeByPk() throws Exception {
         Employee employee = hibernateTemplate.get(Employee.class, 1);
         System.out.println(employee);
     }
 
     @Test
-    public void testUseSpringQueryFindBydHQLShouldFoundData() throws Exception {
+    public void testFindBydHQLShouldFoundData() throws Exception {
         List<Employee> employeeList = hibernateTemplate.find("from Employee ");
         System.out.println(employeeList);
         display(employeeList);
     }
 
     @Test
-    public void testUseSpringQueryFindBydNameQueryShouldFoundData() throws Exception {
+    public void testindBydNameQueryShouldFoundData() throws Exception {
         List<Employee> byNamedQuery = hibernateTemplate.findByNamedQuery("employee.findAll");
         System.out.println(byNamedQuery);
         display(byNamedQuery);
     }
 
     @Test
-    public void testDeleteEmployeeByGetAndCallDeleteShouldBeCascadeDeleted() throws Exception {
+    public void testDeleteShouldBeCascadeDeleted() throws Exception {
 
         try {
-            hibernateTemplate.delete(hibernateTemplate.get(Employee.class, 1));
+            Employee employee = hibernateTemplate.get(Employee.class, 1);
+            hibernateTemplate.delete(employee);
+
         } catch (DataAccessException e) {
             e.printStackTrace();
         }
