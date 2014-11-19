@@ -1,23 +1,16 @@
 package com.training.spring.dao.jdbc;
 
 import com.hibernate.annotation.entity.Department;
-import com.sun.org.apache.bcel.internal.generic.NEW;
-import com.training.spring.dao.DepartmentDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by amanurat on 11/3/14 AD.
@@ -84,7 +77,7 @@ public class JdbcDepartmentDaoImpl{
             public Department mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Department department = new Department();
                 department.setId(rs.getInt("DEPARTMENT_ID"));
-                department.setDepartmentName(rs.getString("DEPARTMENT_NAME"));
+                department.setName(rs.getString("DEPARTMENT_NAME"));
                 return department;
             }
         };

@@ -16,7 +16,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <context:component-scan base-package="com.training.spring.bean"/>
+    <context:component-scan base-package="com.training.spring"/>
     <context:annotation-config/>
     <tx:annotation-driven/>
     
@@ -24,7 +24,7 @@
         <property name="location" value="classpath:properties/resources.properties"/>
 
     </bean>
-
+<!--
     <bean id="hello" class="com.training.spring.bean.Hello">
         <constructor-arg type="java.lang.String">
             <value>Hello Java by Constructor</value>
@@ -38,7 +38,7 @@
     <bean id="humen" class="com.training.spring.bean.Humen">
         <property name="firstName" value="${firstname}"/>
         <property name="lastName" value="${lastname}"/>
-    </bean>
+    </bean>-->
 
 
 </beans>
