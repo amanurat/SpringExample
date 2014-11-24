@@ -1,12 +1,31 @@
 package com.training.spring.service;
 
+import com.hibernate.annotation.entity.Department;
+import com.training.spring.dao.DepartmentDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
 /**
  * User: assanai.manurat
  * Date: 4/24/2014
  * Time: 10:45 PM
  */
+@Service
 public class MyService {
 
+    @Autowired
+    DepartmentDao departmentDao;
+
+
+    @Transactional
+    public List<Department> findAllDepartment() {
+
+        return departmentDao.findAll();
+
+    }
 
     private String message;
 

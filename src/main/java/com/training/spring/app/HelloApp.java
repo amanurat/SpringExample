@@ -1,7 +1,12 @@
 package com.training.spring.app;
 
+import com.training.spring.bean.ExampleComponent;
+import com.training.spring.bean.Hello;
+import com.training.spring.bean.Humen;
+import org.hibernate.criterion.Example;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
  * Date: 10/31/2014
@@ -17,6 +22,30 @@ public class HelloApp {
     }
 
     private static void loadXmlClasspathApplicationContext() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Hello hello = (Hello) context.getBean("hello");
+        System.out.println("############### Hello ###################");
+        System.out.println("hello : " + hello);
+        System.out.println("hello.humen : " + hello.getHumen());
+
+
+        System.out.println("############### Humen ###################");
+        Humen humen = (Humen) context.getBean("humen");
+        System.out.println("humen : "+ humen);
+
+        System.out.println("############### Humen Object ###################");
+        Humen humenObj = context.getBean(Humen.class);
+        System.out.println("humenObj : "+ humenObj);
+
+
+        ExampleComponent component = context.getBean(ExampleComponent.class);
+        System.out.println("component : " + component);
+
+
+        ApplicationContext cxt = new ClassPathXmlApplicationContext("hibernate.xml");
+        JdbcTemplate jdbcTemplate = (JdbcTemplate) cxt.getBean("jdbcTemplate");
+
+        System.out.println(jdbcTemplate);
 
     }
 }
